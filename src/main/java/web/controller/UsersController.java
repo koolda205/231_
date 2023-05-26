@@ -10,7 +10,7 @@ import web.service.UserService;
 
 
 @Controller
-@RequestMapping("/cars")
+@RequestMapping("/users")
 public class UsersController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class UsersController {
     public String printCars(@RequestParam(value = "count", required = false) Long count,
                             ModelMap modelMap) {
 
-        modelMap.addAttribute("cars", userService.getUserlist(count));
+        modelMap.addAttribute("users", userService.getUserlist(count));
         return "users";
     }
 }
