@@ -8,5 +8,7 @@ public interface UserService {
 
     List<User> getUserlist(Long count);
 
+    void add(User user);
+
 }
 

@@ -10,4 +10,8 @@ public interface UserDao {
 
     List<User> getUsersList();
 
+    void add(User user);
+
+
+
 }
