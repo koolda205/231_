@@ -19,6 +19,12 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
+    @Transactional
+    @Override
+    public void addUserInUserList(String name, String surName, String email) {
+
+    }
+
     @Transactional(readOnly = true)
     @Override
     public List<User> getUserlist(Long count) {

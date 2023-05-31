@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface UserService {
 
+    void addUserInUserList(String name, String surName, String email);
+
     List<User> getUserlist(Long count);
 
     void add(User user);
