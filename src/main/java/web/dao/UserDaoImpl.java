@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
 //
 //    }
     @Override
-    public void addUserInUserList(String name, String surName, String email) {
+    public void addUserInUserList(String name, String lastName, String email) {
         usersList.add(new User(++count, "Name","SurName", "email@mail.dj"));
     }
 

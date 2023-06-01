@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public void addUserInUserList(String name, String surName, String email) {
+    public void addUserInUserList(String name, String lastName, String email) {
 
     }
 

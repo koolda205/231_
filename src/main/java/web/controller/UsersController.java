@@ -27,11 +27,11 @@ public class UsersController {
 
 //    @GetMapping()
 //    public String addUsers(@RequestParam(value = "name", required = false) String name,
-//                           @RequestParam(value = "last_name", required = false) String surName,
+//                           @RequestParam(value = "last_name", required = false) String lastName,
 //                           @RequestParam(value = "email", required = false) String email,
 //                           ModelMap modelMap) {
 //
-//        modelMap.addAttribute("users", userService.addUserInUserList(name, surName, email));
+//        modelMap.addAttribute("users", userService.addUserInUserList(name, lastName, email));
 //        return "users";
 //    }
 
