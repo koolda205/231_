@@ -12,13 +12,21 @@ import java.util.List;
 @Component
 public class UserDaoImpl implements UserDao {
 
-    @Autowired
+
     private SessionFactory sessionFactory;
 
-    private List<User> usersList = new ArrayList<>();
-    private static Long count = 0L;
+    private User user;
 
-//    {
+//    private List<User> usersList;
+
+//    private static Long count = 0L;
+
+    @Autowired
+    public UserDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    //    {
 //        usersList.add(new User(++count, "Tom", "Jones", "TJ@mail.dj"));
 //        usersList.add(new User(++count, "Rom", "Tos", "RT@mail.dj"));
 //        usersList.add(new User(++count, "Weom", "Poos", "WP@mail.dj"));
@@ -28,7 +36,7 @@ public class UserDaoImpl implements UserDao {
 //    }
     @Override
     public void addUserInUserList(String name, String lastName, String email) {
-        usersList.add(new User(++count, "Name","SurName", "email@mail.dj"));
+        sessionFactory.getCurrentSession().save(new User(name,lastName, email));
     }
 
 //    public List<User> getUsersList() {
@@ -50,5 +58,15 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void update(User user) {
         sessionFactory.getCurrentSession().update(user);
+    }
+
+    @Override
+    public void getUserByID(Long id) {
+        sessionFactory.getCurrentSession().get(User.class, id);
+    }
+
+    @Override
+    public void deleteUserByID(Long id) {
+        sessionFactory.getCurrentSession().delete(user.getId());
     }
 }

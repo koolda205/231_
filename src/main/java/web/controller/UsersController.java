@@ -14,8 +14,13 @@ import web.service.UserService;
 @RequestMapping("/users")
 public class UsersController {
 
-    @Autowired
+
     UserService userService;
+
+    @Autowired
+    public UsersController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping()
     public String printUsers(@RequestParam(value = "count", required = false) Long count,
