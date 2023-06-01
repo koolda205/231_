@@ -46,4 +46,9 @@ public class UserDaoImpl implements UserDao {
     public void add(User user) {
         sessionFactory.getCurrentSession().save(user);
     }
+
+    @Override
+    public void update(User user) {
+        sessionFactory.getCurrentSession().update(user);
+    }
 }

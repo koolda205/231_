@@ -39,10 +39,17 @@ public class UserServiceImpl implements UserService {
         }
         return users2;
     }
+
     @Transactional
     @Override
     public void add(User user) {
         userDao.add(user);
+    }
+
+    @Transactional
+    @Override
+    public void update(User user) {
+        userDao.update(user);
     }
 }
 
