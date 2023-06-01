@@ -1,40 +1,69 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ page session="false" %>
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <title>UserData</title>
+
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-color: #ccc;
+        }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        .tg .tg-4eph {
+            background-color: #f9f9f9
+        }
+    </style>
+
 </head>
 <body>
+<h1>User Details</h1>
 
-<table th:border="1" th:width="500" th:high="300" bg th:color="red">
-    <caption>Users list</caption>
-    <br />
-    <br />
+<table class="tg">
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Last_name</th>
-        <th>Email</th>
+        <th width="80">Id</th>
+        <th width="120">Name</th>
+        <th width="120">Last_Name</th>
+        <th width="120">Email</th>
     </tr>
-    <tr th:each="user : ${users}">
-        <td th:utext="${user.getId()}">
-        <td th:utext="${user.getName()}">
-        <td th:utext="${user.getLastName()}">
-        <td th:utext="${user.getEmail()}">
+    <tr>
+        <td>${user.id}</td>
+        <td>${user.name}</td>
+        <td>${user.lastName}</td>
+        <td>${user.email}</td>
     </tr>
 </table>
-<br />
-Home page:
-<a href="/">link</a>
-<!--<p>Get 1 user: <a href="/users?count=1">link</a></p>-->
-<!--Get 2 user:-->
-<!--<a href="/users?count=2">link</a>-->
-<!--<br />-->
-<!--<p>Get 3 user: <a href="/users?count=3">link</a></p>-->
-<!--<p>Get 4 user: <a href="/users?count=4">link</a></p>-->
-<!--<p>Get 5 user: <a href="/users?count=5">link</a></p>-->
-<!--<p>Get all user: <a href="/users?count=6">link</a></p>-->
-
 </body>
 </html>
