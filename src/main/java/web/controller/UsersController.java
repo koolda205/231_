@@ -49,7 +49,7 @@ public class UsersController {
 
         return "redirect:/users";
     }
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("/edit/{id}")
     public String editUser (@PathVariable("id") Long id,
                             Model model) {
         model.addAttribute("users", userService.getUserByID(id));

@@ -16,12 +16,16 @@
         <th>Name</th>
         <th>Last_name</th>
         <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     <tr th:each="user : ${users}">
         <td th:utext="${user.getId()}">
         <td th:utext="${user.getName()}">
         <td th:utext="${user.getLastName()}">
         <td th:utext="${user.getEmail()}">
+        <td><a href="<c:url value='/edit/${user.getId()}'/>">Edit</a></td>
+        <td><a href="<c:url value='/remove/${user.getId()}'/>">Delete</a></td>
     </tr>
 </table>
 <br />
