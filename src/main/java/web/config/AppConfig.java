@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import web.model.User;
 
-import javax.servlet.Filter;
 import javax.sql.DataSource;
 import java.util.Properties;
 
