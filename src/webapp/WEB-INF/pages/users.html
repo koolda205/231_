@@ -29,7 +29,10 @@
     </tr>
     <tr th:each="user : ${users}">
         <td th:utext="${user.getId()}">
-        <td th:utext="${user.getName()}">
+        <td th:utext="${user.name}">
+<!--        <td><a href="<c:url value='/edit/${user.id}'/>"><td th:utext="${user.getName()}">/a></td>-->
+<!--            <a href="/">link</a>-->
+<!--        <td><a href="<c:url value='/${user.name}'/>"></a></td>-->
         <td th:utext="${user.getLastName()}">
         <td th:utext="${user.getEmail()}">
         <td><a href="<c:url value='/edit/${user.id}'/>">Edit</a></td>
