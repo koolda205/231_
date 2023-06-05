@@ -39,14 +39,14 @@ public class UsersController {
     public String newPerson(ModelMap modelMap) {
 
         modelMap.addAttribute("user", new User());
-        return "users/new";
+        return "redirect:/";
     }
 
     @PostMapping()
     public String create(@ModelAttribute("user") User user) {
 
         userService.add(user);
-        return "redirect:/users";
+        return "redirect:/";
 
     }
 }
