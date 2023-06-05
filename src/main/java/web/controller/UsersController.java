@@ -9,7 +9,7 @@ import web.service.UserService;
 
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/")
 public class UsersController {
 
 
@@ -21,7 +21,7 @@ public class UsersController {
     }
 
     @GetMapping()
-    public String printUsers(@RequestParam(value = "count", required = false) Long count,
+    public String findUsersById(@RequestParam(value = "count", required = false) Long count,
                             ModelMap modelMap) {
 
         modelMap.addAttribute("users", userService.getUserlist(count));

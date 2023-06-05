@@ -25,25 +25,31 @@
     </tr>
 </table>
 <br />
+
+<p>Get 1 user: <a href="/?count=1">link</a></p>
+<a href="/?count=0">Get all user</a>
+
+<br>
+<br>
+<form action="/" method="get">
+    <input type="text" name="count"
+           placeholder="Write user ID"/>
+    <input type="submit">
+</form>
+<br>
+<br>
+
+<a href="/new">Create new Users list</a>
+<br>
+<br>
+
+Your id: ${<param name="name" value="count">}
+<br>
+<br>
+
+
 Home page:
 <a href="/">link</a>
-<p>Get 1 user: <a href="/users?count=1">link</a></p>
-<!--Get 2 user:-->
-<!--<a href="/users?count=2">link</a>-->
-<!--<br />-->
-<!--<p>Get 3 user: <a href="/users?count=3">link</a></p>-->
-<!--<p>Get 4 user: <a href="/users?count=4">link</a></p>-->
-<!--<p>Get 5 user: <a href="/users?count=5">link</a></p>-->
-<a href="/users?count=6">Get all user</a>
-<br>
-<!--<p>Get user: <a href="/users?count=5">link</a></p>-->
-
-<br>
-<br>
-<a href="/users/new">Create new Users list</a>
-
-<br>
-Your id: ${param.name}
 
 </body>
 </html>

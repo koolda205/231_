@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserlist(Long count) {
         List<User> users = userDao.getUsersList();
         List<User> users2 = new ArrayList<>();
-        if (count == null || count <= 0 || count > 5) {
+        if (count == null || count <= 0 || count > users.size()) {
             return users;
         } else {
             for (int i = 0; i < count; i++) {
