@@ -61,8 +61,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void getUserByID(Long id) {
-        sessionFactory.getCurrentSession().get(User.class, id);
+    public User getUserByID(Long id) {
+        return sessionFactory.getCurrentSession().get(User.class, id);
     }
 
     @Override
