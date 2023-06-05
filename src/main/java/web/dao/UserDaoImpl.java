@@ -26,22 +26,11 @@ public class UserDaoImpl implements UserDao {
         this.sessionFactory = sessionFactory;
     }
 
-    //    {
-//        usersList.add(new User(++count, "Tom", "Jones", "TJ@mail.dj"));
-//        usersList.add(new User(++count, "Rom", "Tos", "RT@mail.dj"));
-//        usersList.add(new User(++count, "Weom", "Poos", "WP@mail.dj"));
-//        usersList.add(new User(++count, "Weom1", "Poos1", "WP1@mail.dj"));
-//        usersList.add(new User(++count, "Weom2", "Poos2", "WP2@mail.dj"));
-//
-//    }
     @Override
     public void addUserInUserList(String name, String lastName, String email) {
         sessionFactory.getCurrentSession().save(new User(name,lastName, email));
     }
 
-//    public List<User> getUsersList() {
-//        return usersList;
-//    }
 
     @Override
     @SuppressWarnings("unchecked")

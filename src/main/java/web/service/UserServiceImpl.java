@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void addUserInUserList(String name, String lastName, String email) {
-
+        userDao.addUserInUserList(name, lastName, email);
     }
 
 //    @Transactional(readOnly = true)

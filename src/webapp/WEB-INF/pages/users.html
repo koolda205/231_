@@ -45,19 +45,19 @@
 <br>
 <br>
 
-<form action="/" method="get">
-    <label for="name">Seach user by ID</label>
-    <input type="text" name="count"
-           placeholder="Write user ID"/>
-    <input type="submit" value="Искать">
+<form action="/delete" method="get">
+    <label for="name">Delete user by id</label>
+    <input type="text" name="id"
+           placeholder="Write user id"/>
+    <input type="submit" value="Удалить">
 </form>
 <br>
 <br>
 
 <form th:method="POST" th:action="@{/}" th:object="${user}">
     <label for="name">Enter name: </label>
-    <input type="text" th:fiel="${name}" id="name"/>
-
+    <input type="text" th:fiel="${name}" id="name"
+            placeholder="Write user name"/>
     <input type="submit" value="Создать"/>
 </form>
 <br>
@@ -67,7 +67,7 @@
 <br>
 <br>
 
-Your id: ${<param.count>}
+Your id: ${param.name}
 <br>
 <br>
 
