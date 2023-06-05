@@ -28,12 +28,12 @@ public class UsersController {
         return "users";
     }
 
-    @GetMapping("/{id}")
-    public String show(@PathVariable("id") Long id, ModelMap modelMap) {
-
-        modelMap.addAttribute("users", userService.getUserByID(id));
-        return "users/show";
-    }
+//    @GetMapping("/{id}")
+//    public String show(@PathVariable("id") Long id, ModelMap modelMap) {
+//
+//        modelMap.addAttribute("users", userService.getUserByID(id));
+//        return "users/show";
+//    }
 
     @GetMapping("/new")
     public String newPerson(ModelMap modelMap) {

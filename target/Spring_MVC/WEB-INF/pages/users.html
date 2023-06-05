@@ -18,7 +18,7 @@
         <th>Email</th>
     </tr>
     <tr th:each="user : ${users}">
-        <td th:utext="${user.getId()}">
+        <a href="${user.getId()}"></a>
         <td th:utext="${user.getName()}">
         <td th:utext="${user.getLastName()}">
         <td th:utext="${user.getEmail()}">
@@ -28,9 +28,10 @@
 
 <p>Get 1 user: <a href="/?count=1">link</a></p>
 <a href="/?count=0">Get all user</a>
+<br>
+<br>
 
-<br>
-<br>
+
 <form action="/" method="get">
     <input type="text" name="count"
            placeholder="Write user ID"/>
