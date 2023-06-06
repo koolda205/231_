@@ -40,19 +40,18 @@ public class UsersController {
         return "redirect:/users";
     }
 
-    @GetMapping("/new")
-    public String newPerson(ModelMap modelMap) {
+    @GetMapping("/create")
+    public String create(ModelMap modelMap) {
 
         modelMap.addAttribute("user", new User());
         return "redirect:/users";
     }
 
-    @PostMapping()
-    public String create(@ModelAttribute("user") User user) {
+    @PostMapping("/add")
+    public String add(@ModelAttribute("user") User user) {
 
         userService.add(user);
         return "redirect:/users";
-
     }
 }
 
