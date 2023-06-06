@@ -88,22 +88,40 @@ public class UsersController {
         return "all-users";
     }
 
-    @RequestMapping("/addNewUser")
-    public String addNewUser(Model model){
+//    @RequestMapping("/addNewUser")
+//    public String addNewUser(Model model){
+//
+//        User user = new User();
+//        model.addAttribute("user", user);
+//
+//        return "user-info";
+//    }
+
+    @PostMapping("/addNewUser")
+    public String addNewUser(@RequestParam("name") String name,
+                             @RequestParam("lastName") String lastName,
+                             @RequestParam("email") String email,
+                                 Model model){
 
         User user = new User();
+        user.setName(name);
+        user.setLastName(lastName);
+        user.setEmail(email);
+
         model.addAttribute("user", user);
-
-        return "user-info";
-    }
-
-    @RequestMapping("/saveUser")
-    public String saveUser(@ModelAttribute("user") User user) {
 
         userService.saveUser(user);
 
         return "redirect:/";
     }
+
+//    @RequestMapping("/saveUser")
+//    public String saveUser(@ModelAttribute("user") User user) {
+//
+//        userService.saveUser(user);
+//
+//        return "redirect:/";
+//    }
 
     @RequestMapping("/updateInfo")
     public String updateUser() {
