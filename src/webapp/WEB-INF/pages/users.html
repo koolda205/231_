@@ -28,13 +28,10 @@
         <td><a href="<c:url value='/remove/${user.getId()}'/>">Delete</a></td>
     </tr>
 </table>
-<br />
 
 <p>Get first user: <a href="/?count=1">link</a></p>
 <a href="/?count=0">Get all user</a>
 <br>
-<br>
-
 
 <form action="/" method="get">
     <label for="name">Get user by ID</label>
@@ -42,7 +39,6 @@
            placeholder="Write user ID"/>
     <input type="submit">
 </form>
-<br>
 <br>
 
 <form action="/delete" method="get">
@@ -52,7 +48,6 @@
     <input type="submit" value="Удалить">
 </form>
 <br>
-<br>
 
 <form th:method="POST" th:action="@{/}" th:object="${user}">
     <label for="name">Enter name: </label>
@@ -61,14 +56,17 @@
     <input type="submit" value="Создать"/>
 </form>
 <br>
-<br>
 
 <a href="/new">Create new User</a>
-<br>
 <br>
 
 Your id: ${param.123}
 <br>
-<br>
+
+Home page:
+<a href="/">link</a>
+
+</body>
+</html>
 
 
