@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html"
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,10 +17,16 @@
     <th>Name</th>
     <th>Last Name</th>
     <th>Email</th>
+    <th>Operations</th>
 <!--    <th>Edit</th>-->
 <!--    <th>Delete</th>-->
   </tr>
   <tr th:each="user : ${allUsers}">
+
+    <c:url var="updateButton" value="/updateInfo">
+      <c: param
+
+    </c:url>
     <td th:utext="${user.id}">
     <td th:utext="${user.name}">
     <td th:utext="${user.lastName}">
