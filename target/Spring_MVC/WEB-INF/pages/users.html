@@ -1,109 +1,109 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title></title>-->
-<!--</head>-->
-<!--<body>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
 
-<!--<table th:border="1" th:width="500" th:high="300" bg th:color="red">-->
-<!--    <caption>Users list</caption>-->
-<!--    <br />-->
-<!--    <br />-->
-<!--    <tr>-->
-<!--        <th>Id</th>-->
-<!--        <th>Name</th>-->
-<!--        <th>Last_name</th>-->
-<!--        <th>Email</th>-->
-<!--        <th>Edit</th>-->
-<!--        <th>Delete</th>-->
-<!--    </tr>-->
-<!--    <tr th:each="user : ${users}">-->
-<!--        <td th:utext="${user.getId()}">-->
-<!--        <td th:utext="${user.getName()}">-->
-<!--        <td th:utext="${user.getLastName()}">-->
-<!--        <td th:utext="${user.getEmail()}">-->
-<!--        <td><a href="<c:url value='/edit/${user.getId()}'/>">Edit</a></td>-->
-<!--        <td><a href="<c:url value='/remove/${user.getId()}'/>">Delete</a></td>-->
-<!--    </tr>-->
-<!--</table>-->
+<table th:border="1" th:width="500" th:high="300" bg th:color="red">
+    <caption>Users list</caption>
+    <br />
+    <br />
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last_name</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:utext="${user.getId()}">
+        <td th:utext="${user.getName()}">
+        <td th:utext="${user.getLastName()}">
+        <td th:utext="${user.getEmail()}">
+        <td><a href="<c:url value='/edit/${user.getId()}'/>">Edit</a></td>
+        <td><a href="<c:url value='/remove/${user.getId()}'/>">Delete</a></td>
+    </tr>
+</table>
 
-<!--<p>Get first user: <a href="/?count=1">link</a></p>-->
+<p>Get first user: <a href="/?count=1">link</a></p>
 
-<!--<a href="/?count=0">Get all user</a>-->
+<a href="/?count=0">Get all user</a>
 
-<!--<form action="/" method="get">-->
-<!--    <label for="name">Get user by ID</label>-->
-<!--    <input type="text" name="count"-->
-<!--           placeholder="Write user ID"/>-->
-<!--    <input type="submit">-->
-<!--</form>-->
-<!--<br>-->
-<!--<p>================================================</p>-->
-<!--<form:form action = "create" modelatribute="user">-->
+<form action="/" method="get">
+    <label for="name">Get user by ID</label>
+    <input type="text" name="count"
+           placeholder="Write user ID"/>
+    <input type="submit">
+</form>
+<br>
+<p>================================================</p>
+<form:form action = "create" modelatribute="user">
 
-<!--    Name <form:input path="name"/>-->
-<!--    <input type="text" name="name"-->
-<!--           placeholder="Write user name"/>-->
-<!--    <br>-->
-<!--    Last Name <form:input path="lastName"/>-->
-<!--    <input type="text" name="lastName"-->
-<!--           placeholder="Write user lastName"/>-->
-<!--    <br>-->
-<!--    Email <form:input path="email"/>-->
-<!--    <input type="text" name="email"-->
-<!--           placeholder="Write user email"/>-->
-<!--    <br>-->
-<!--        <input type="submit" value="OK">-->
-<!--</form:form>-->
-<!--<br>-->
-<!--<p>================================================</p>-->
-<!--<form action="/delete" method="get">-->
-<!--    <label for="name">Delete user by id</label>-->
-<!--    <input type="text" name="id"-->
-<!--           placeholder="Write user id"/>-->
-<!--    <input type="submit" value="Удалить">-->
-<!--</form>-->
-<!--<br>-->
-<!--<p>================================================</p>-->
-<!--<form th:method="POST" th:action="@{/}" th:object="${user}">-->
-<!--    <label for="name">Enter name: </label>-->
-<!--    <input type="text" th:fiel="${name}" id="name"-->
-<!--            placeholder="Write user name"/>-->
-<!--    <input type="submit" value="Создать"/>-->
-<!--</form>-->
-<!--<br>-->
-<!--<p>================================================</p>-->
-
-
-<!--Department <form:select path="department"/>-->
-<!--<form:option value="Information Technology" label="IT"/>-->
-<!--<form:option value="Sales" label="Sales"/>-->
-<!--<form:option value="Human Resourses" label="HR"/>-->
-<!--<form:select>-->
-<!--    <input type="select" name="department"-->
-<!--           placeholder="Write user dept"/>-->
-<!--    <br>-->
-<!--    <input type="submit" value="OK">-->
-<!--<br>-->
-<!--<br>-->
-
-<!--<p>================================================</p>-->
-<!--<a href="/new">Create new User</a>-->
+    Name <form:input path="name"/>
+    <input type="text" name="name"
+           placeholder="Write user name"/>
+    <br>
+    Last Name <form:input path="lastName"/>
+    <input type="text" name="lastName"
+           placeholder="Write user lastName"/>
+    <br>
+    Email <form:input path="email"/>
+    <input type="text" name="email"
+           placeholder="Write user email"/>
+    <br>
+        <input type="submit" value="OK">
+</form:form>
+<br>
+<p>================================================</p>
+<form action="/delete" method="get">
+    <label for="name">Delete user by id</label>
+    <input type="text" name="id"
+           placeholder="Write user id"/>
+    <input type="submit" value="Удалить">
+</form>
+<br>
+<p>================================================</p>
+<form th:method="POST" th:action="@{/}" th:object="${user}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:fiel="${name}" id="name"
+            placeholder="Write user name"/>
+    <input type="submit" value="Создать"/>
+</form>
+<br>
+<p>================================================</p>
 
 
-<!--<br>-->
-<!--<br>-->
-<!--<p>================================================</p>-->
-<!--Your id: ${param.123}-->
-<!--<br>-->
-<!--<p>================================================</p>-->
-<!--Home page:-->
-<!--<a href="/">link</a>-->
+Department <form:select path="department"/>
+<form:option value="Information Technology" label="IT"/>
+<form:option value="Sales" label="Sales"/>
+<form:option value="Human Resourses" label="HR"/>
+<form:select>
+    <input type="select" name="department"
+           placeholder="Write user dept"/>
+    <br>
+    <input type="submit" value="OK">
+<br>
+<br>
+
+<p>================================================</p>
+<a href="/new">Create new User</a>
 
 
-<!--</body>-->
-<!--</html>-->
+<br>
+<br>
+<p>================================================</p>
+Your id: ${param.123}
+<br>
+<p>================================================</p>
+Home page:
+<a href="/">link</a>
+
+
+</body>
+</html>
 
 
