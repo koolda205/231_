@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import web.dao.UserDao;
 import web.model.User;
 import web.service.UserService;
 
@@ -99,13 +98,13 @@ public class UsersController {
 
     @PostMapping("/addNewUser")
     public String addNewUser(@RequestParam("name") String name,
-                             @RequestParam("lastName") String lastName,
+                             @RequestParam("surname") String surname,
                              @RequestParam("email") String email,
                                  Model model){
 
         User user = new User();
         user.setName(name);
-        user.setLastName(lastName);
+        user.setSurname(surname);
         user.setEmail(email);
 
         model.addAttribute("user", user);

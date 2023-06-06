@@ -13,17 +13,17 @@ public class User {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "surname")
+    private String surname;
     @Column(name = "email")
     private String email;
 
     public User() {
     }
 
-    public User(String name, String lastName, String email) {
+    public User(String name, String surname, String email) {
         this.name = name;
-        this.lastName = lastName;
+        this.surname = surname;
         this.email = email;
     }
 
@@ -43,12 +43,12 @@ public class User {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLastName(String surName) {
-        this.lastName = lastName;
+    public void setSurname(String surName) {
+        this.surname = surname;
     }
 
     public String getEmail() {
@@ -64,7 +64,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", surName='" + lastName + '\'' +
+                ", surName='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
@@ -74,11 +74,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email);
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, lastName, email);
+        return Objects.hash(id, name, surname, email);
     }
 }
