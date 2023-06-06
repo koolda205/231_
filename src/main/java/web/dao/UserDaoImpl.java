@@ -55,12 +55,17 @@ public class UserDaoImpl implements UserDao {
 //        sessionFactory.getCurrentSession().delete(user.getId());
 //    }
     @Override
-    @Transactional
     public List<User> getAllUsers() {
 
         Session session = sessionFactory.getCurrentSession();
         List<User> allUsers= session.createQuery("from User", User.class)
             .getResultList();
         return allUsers;
+    }
+    @Override
+    public void saveUser (User user) {
+
+        Session session = sessionFactory.getCurrentSession();
+        session.save(user);
     }
 }

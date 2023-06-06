@@ -14,11 +14,11 @@ import java.util.List;
 @Controller
 public class UsersController {
 
-    private final UserDao userDao;
+    private UserService userService;
 
     @Autowired
-    public UsersController(UserDao userDao) {
-        this.userDao = userDao;
+    public UsersController(UserService userService) {
+        this.userService = userService;
     }
 
 //    @GetMapping("/")
@@ -82,11 +82,29 @@ public class UsersController {
     @RequestMapping("/")
     public String showAllUsers(Model model) {
 
-        List<User> allUsers = userDao.getAllUsers();
-        model.addAttribute("allUsers", userDao.getAllUsers());
+        List<User> allUsers = userService.getAllUsers();
+        model.addAttribute("allUsers", allUsers);
 
         return "all-users";
     }
+
+    @RequestMapping("/addNewUser")
+    public String addNewUser(Model model){
+
+        User user = new User();
+        model.addAttribute("user", user);
+
+        return "user-info";
+    }
+
+    @RequestMapping("/saveUser")
+    public String saveUser(@ModelAttribute("user") User user) {
+
+        userService.saveUser(user);
+
+        return "redirect:/";
+    }
+
 }
 
 

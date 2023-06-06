@@ -20,5 +20,7 @@ public interface UserService {
 
     List<User> getAllUsers();
 
+    void saveUser (User user);
+
 }
 

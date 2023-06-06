@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserDao userDao;
+    private UserDao userDao;
 
     @Autowired
     public UserServiceImpl(UserDao userDao) {
@@ -81,10 +81,16 @@ public class UserServiceImpl implements UserService {
 //    public void deleteUserByID(Long id) {
 //        userDao.deleteUserByID(id);
 //    }
-
+    @Override
+    @Transactional
     public List<User> getAllUsers() {
-
         return userDao.getAllUsers();
+    }
+
+    @Override
+    @Transactional
+    public void saveUser (User user) {
+        userDao.saveUser (user);
     }
 }
 
