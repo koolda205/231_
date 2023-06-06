@@ -77,7 +77,7 @@ public class UsersController {
 //        modelMap.addAttribute("users", userService.add(user));
 //        return "users";
 //    }
-//}
+
 
     @RequestMapping("/")
     public String showAllUsers(Model model) {
