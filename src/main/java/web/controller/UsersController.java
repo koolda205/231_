@@ -50,14 +50,14 @@ public class UsersController {
 //        userService.add(user);
 //        return "redirect:/users";
 //    }
-//}
+//}//    @GetMapping("/{id}")
+////    public String show(@PathVariable("id") Long id, ModelMap modelMap) {
+////
+////        modelMap.addAttribute("users", userService.getUserByID(id));
+////        return "users/show";
+////    }
 
-//    @GetMapping("/{id}")
-//    public String show(@PathVariable("id") Long id, ModelMap modelMap) {
-//
-//        modelMap.addAttribute("users", userService.getUserByID(id));
-//        return "users/show";
-//    }
+
 
 //    @GetMapping()
 //    public String addUsers(@RequestParam(value = "name", required = false) String name,
@@ -77,56 +77,75 @@ public class UsersController {
 //        return "users";
 //    }
 //}
+///////////ниже рабочие версии/////////////////////
 
-    @RequestMapping("/")
-    public String showAllUsers(Model model) {
-
-        List<User> allUsers = userService.getAllUsers();
-        model.addAttribute("allUsers", allUsers);
-
-        return "all-users";
-    }
-
-//    @RequestMapping("/addNewUser")
-//    public String addNewUser(Model model){
+//    @RequestMapping("/")
+//    public String showAllUsers(Model model) {
 //
-//        User user = new User();
-//        model.addAttribute("user", user);
+//        List<User> allUsers = userService.getAllUsers();
+//        model.addAttribute("allUsers", allUsers);
 //
-//        return "user-info";
+//        return "all-users";
 //    }
 
-    @PostMapping("/addNewUser")
-    public String addNewUser(@RequestParam("name") String name,
-                             @RequestParam("surname") String surname,
-                             @RequestParam("email") String email,
-                                 Model model){
 
-        User user = new User();
-        user.setName(name);
-        user.setSurname(surname);
-        user.setEmail(email);
-
-        model.addAttribute("user", user);
-
-        userService.saveUser(user);
-
-        return "redirect:/";
-    }
-
-//    @RequestMapping("/saveUser")
-//    public String saveUser(@ModelAttribute("user") User user) {
+//    @RequestMapping("/addNewUser")
+//    public String addNewUser(@RequestParam("name") String name,
+//                             @RequestParam("surname") String surname,
+//                             @RequestParam("email") String email,
+//                                 Model model){
+//
+//        User user = new User();
+//        user.setName(name);
+//        user.setSurname(surname);
+//        user.setEmail(email);
+//
+//        model.addAttribute("user", user);
 //
 //        userService.saveUser(user);
 //
 //        return "redirect:/";
 //    }
 
-    @RequestMapping("/updateInfo")
-    public String updateUser() {
-        return null;
+
+
+    @GetMapping("/")
+    public String showAllUsers(Model model) {
+
+        model.addAttribute("allUsers", userService.getAllUsers());
+
+        return "all-users";
     }
 
+
+    @PostMapping("/addNewUser")
+    public String saveUser(@ModelAttribute("user") User user) {
+
+        userService.saveUser(user);
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/findUsersById")
+    public String findUsersById(@RequestParam(value = "id", required = false) Long id,
+                            Model model) {
+
+        model.addAttribute("id", userService.getUserByID(id));
+        return "user-info";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id") Long id) {
+
+        model.addAttribute("user", userService.getUserByID(id));
+        return "/edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update (@ModelAttribute("user") User user,
+                          @PathVariable("id") Long id) {
+        userService.getUserByID(id);
+        return "redirect:/";
+
+    }
 }
-
-

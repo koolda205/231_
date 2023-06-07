@@ -68,4 +68,23 @@ public class UserDaoImpl implements UserDao {
         Session session = sessionFactory.getCurrentSession();
         session.save(user);
     }
+
+    @Override
+    public User getUserByID(Long id) {
+
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(User.class, id);
+    }
+
+    @Override
+    public void update(Long id, User updatedUser) {
+
+        User userToBeUpdated = getUserByID(id);
+        userToBeUpdated.setName(updatedUser.getName());
+        userToBeUpdated.setSurname(updatedUser.getSurname());
+        userToBeUpdated.setEmail(updatedUser.getEmail());
+
+//        Session session = sessionFactory.getCurrentSession();
+//        session.update(user);
+    }
 }

@@ -22,5 +22,9 @@ public interface UserService {
 
     void saveUser (User user);
 
+    User getUserByID(Long id);
+
+    void update(Long id, User updatedUser);
+
 }
 

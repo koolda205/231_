@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
 
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title></title>
@@ -62,6 +61,18 @@
   <input type="submit" value="Add User">
 
 </form>
+
+<br>
+<br>
+<form action="/findUsersById" method="get">
+  <label for="name">Get user by ID</label>
+  <input type="text" name="count"
+         placeholder="Write user ID"/>
+  <input type="submit">
+</form>
+<br>
+
+
 
 </body>
 </html>
