@@ -77,6 +77,13 @@ public class UsersController {
 //        return "users";
 //    }
 //}
+    //    @PatchMapping("/{id}")
+//    public String update (@ModelAttribute("user") User user,
+//                          @PathVariable("id") Long id) {
+//        userService.getUserByID(id);
+//        return "redirect:/";
+//    }
+
 ///////////ниже рабочие версии/////////////////////
 
 //    @RequestMapping("/")
@@ -108,7 +115,6 @@ public class UsersController {
 //    }
 
 
-
     @GetMapping("/")
     public String showAllUsers(Model model) {
 
@@ -116,7 +122,6 @@ public class UsersController {
 
         return "all-users";
     }
-
 
     @PostMapping("/addNewUser")
     public String saveUser(@ModelAttribute("user") User user) {
@@ -134,18 +139,20 @@ public class UsersController {
         return "user-info";
     }
 
-    @GetMapping("/{id}/edit")
+    @GetMapping("/{id}/editUsersById")
     public String edit(Model model, @PathVariable("id") Long id) {
 
         model.addAttribute("user", userService.getUserByID(id));
-        return "/edit";
+        model.addAttribute("allUsers", userService.getAllUsers());
+        return "redirect:/";
     }
 
-    @PatchMapping("/{id}")
-    public String update (@ModelAttribute("user") User user,
-                          @PathVariable("id") Long id) {
-        userService.getUserByID(id);
-        return "redirect:/";
 
+    @DeleteMapping("/deleteUserById")
+    public String deleteUser(@PathVariable("id") Long id) {
+
+        userService.deleteUserByID(id);
+
+        return "redirect:/";
     }
 }

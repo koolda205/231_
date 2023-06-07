@@ -77,6 +77,23 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public void editUserByID(Long id) {
+
+        User userToBeUpdated = getUserByID(id);
+        userToBeUpdated.setName(updatedUser.getName());
+        userToBeUpdated.setSurname(updatedUser.getSurname());
+        userToBeUpdated.setEmail(updatedUser.getEmail());
+
+    @Override
+    public void deleteUserByID(Long id) {
+
+        User user = new User();
+
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(getUserByID(id));
+    }
+
+    @Override
     public void update(Long id, User updatedUser) {
 
         User userToBeUpdated = getUserByID(id);
