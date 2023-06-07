@@ -111,11 +111,6 @@ public class UserServiceImpl implements UserService {
         userDao.deleteUserByID(id);
     }
 
-    @Transactional
-    @Override
-    public void update(Long id, User updatedUser) {
-        userDao.update(id, updatedUser);
-    }
 }
 
 

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
 
-import java.util.List;
 
 
 @Controller
@@ -139,7 +138,7 @@ public class UsersController {
         return "user-info";
     }
 
-    @GetMapping("/{id}/editUsersById")
+    @GetMapping("/editUsersById/{id}")
     public String edit(Model model, @PathVariable("id") Long id) {
 
         model.addAttribute("user", userService.getUserByID(id));

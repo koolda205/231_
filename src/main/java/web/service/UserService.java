@@ -28,7 +28,6 @@ public interface UserService {
 
     void deleteUserByID(Long id);
 
-    void update(Long id, User updatedUser);
 
 }
 
