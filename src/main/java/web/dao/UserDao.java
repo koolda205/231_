@@ -22,4 +22,13 @@ public interface UserDao {
 
     void saveUser (User user);
 
+    User getUserByID(Long id);
+
+    void editUser(User user);
+
+    void deleteUserByID(Long id);
+
+
+
+
 }

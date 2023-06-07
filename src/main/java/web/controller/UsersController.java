@@ -4,11 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import web.dao.UserDao;
 import web.model.User;
 import web.service.UserService;
 
-import java.util.List;
 
 
 @Controller
@@ -51,14 +49,14 @@ public class UsersController {
 //        userService.add(user);
 //        return "redirect:/users";
 //    }
-//}
+//}//    @GetMapping("/{id}")
+////    public String show(@PathVariable("id") Long id, ModelMap modelMap) {
+////
+////        modelMap.addAttribute("users", userService.getUserByID(id));
+////        return "users/show";
+////    }
 
-//    @GetMapping("/{id}")
-//    public String show(@PathVariable("id") Long id, ModelMap modelMap) {
-//
-//        modelMap.addAttribute("users", userService.getUserByID(id));
-//        return "users/show";
-//    }
+
 
 //    @GetMapping()
 //    public String addUsers(@RequestParam(value = "name", required = false) String name,
@@ -78,26 +76,71 @@ public class UsersController {
 //        return "users";
 //    }
 //}
+    //    @PatchMapping("/{id}")
+//    public String update (@ModelAttribute("user") User user,
+//                          @PathVariable("id") Long id) {
+//        userService.getUserByID(id);
+//        return "redirect:/";
+//    }
 
-    @RequestMapping("/")
+    //    @GetMapping("/editUsersById/{id}")
+//    public String edit(Model model, @PathVariable("id") Long id) {
+//
+//        model.addAttribute("user", userService.getUserByID(id));
+//        model.addAttribute("allUsers", userService.getAllUsers());
+//        return "redirect:/";
+//    }
+
+//    @DeleteMapping("/deleteUserById")
+//    public String deleteUser(@PathVariable("id") Long id) {
+//
+//        userService.deleteUserByID(id);
+//
+//        return "redirect:/";
+//    }
+
+///////////ниже рабочие версии/////////////////////
+
+//    @RequestMapping("/")
+//    public String showAllUsers(Model model) {
+//
+//        List<User> allUsers = userService.getAllUsers();
+//        model.addAttribute("allUsers", allUsers);
+//
+//        return "all-users";
+//    }
+
+
+//    @RequestMapping("/addNewUser")
+//    public String addNewUser(@RequestParam("name") String name,
+//                             @RequestParam("surname") String surname,
+//                             @RequestParam("email") String email,
+//                                 Model model){
+//
+//        User user = new User();
+//        user.setName(name);
+//        user.setSurname(surname);
+//        user.setEmail(email);
+//
+//        model.addAttribute("user", user);
+//
+//        userService.saveUser(user);
+//
+//        return "redirect:/";
+//    }
+
+
+
+
+    @GetMapping("/")
     public String showAllUsers(Model model) {
 
-        List<User> allUsers = userService.getAllUsers();
-        model.addAttribute("allUsers", allUsers);
+        model.addAttribute("allUsers", userService.getAllUsers());
 
         return "all-users";
     }
 
-    @RequestMapping("/addNewUser")
-    public String addNewUser(Model model){
-
-        User user = new User();
-        model.addAttribute("user", user);
-
-        return "user-info";
-    }
-
-    @RequestMapping("/saveUser")
+    @PostMapping("/addNewUser")
     public String saveUser(@ModelAttribute("user") User user) {
 
         userService.saveUser(user);
@@ -105,6 +148,38 @@ public class UsersController {
         return "redirect:/";
     }
 
+    @GetMapping("/findUsersById")
+    public String findUsersById(@RequestParam(value = "id", required = false) Long id,
+                            Model model) {
+
+        model.addAttribute("user", userService.getUserByID(id));
+        return "user-info";
+    }
+
+    @RequestMapping("/editUserById")
+    public String editUsersById(@RequestParam(value = "id", required = false) Long id,
+                                Model model) {
+        model.addAttribute("id", id);
+        model.addAttribute("user", userService.getUserByID(id));
+        userService.deleteUserByID(id);
+
+        return "edit";
+    }
+
+    @RequestMapping("/editUser")
+    public String edit(@ModelAttribute("user") User user) {
+
+        userService.editUser (user);
+        return "redirect:/";
+    }
+
+    @RequestMapping("/deleteUserById")
+    public String deleteUser(@RequestParam(value = "id", required = false) Long id) {
+
+        userService.deleteUserByID(id);
+
+        return "redirect:/";
+    }
+
+
 }
-
-

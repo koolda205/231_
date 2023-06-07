@@ -1,26 +1,56 @@
 package web.dao;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+
 import web.model.User;
 
-import javax.persistence.TypedQuery;
-import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    private SessionFactory sessionFactory;
+    @PersistenceContext
+    EntityManager entityManager;
 
-    @Autowired
-    public UserDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public List<User> getAllUsers() {
+
+        return entityManager.createQuery("from User", User.class).getResultList();
     }
+
+    @Override
+    public void saveUser (User user) {
+
+       entityManager.persist(user);
+    }
+
+    @Override
+    public User getUserByID(Long id) {
+
+        return entityManager.find(User.class, id);
+    }
+
+    @Override
+    public void deleteUserByID(Long id) {
+
+        User user = entityManager.find(User.class, id);
+        entityManager.remove (user);
+    }
+
+    @Override
+    public void editUser(User user) {
+
+        entityManager.merge (user);
+    }
+}
+
+//    private SessionFactory sessionFactory;
+//
+//    @Autowired
+//    public UserDaoImpl(SessionFactory sessionFactory) {
+//        this.sessionFactory = sessionFactory;
+//    }
 
 //    @Override
 //    public void addUserInUserList(String name, String lastName, String email) {
@@ -54,18 +84,55 @@ public class UserDaoImpl implements UserDao {
 //    public void deleteUserByID(Long id) {
 //        sessionFactory.getCurrentSession().delete(user.getId());
 //    }
-    @Override
-    public List<User> getAllUsers() {
+//    @Override
+//    public List<User> getAllUsers() {
+//
+//        Session session = sessionFactory.getCurrentSession();
+//        List<User> allUsers= session.createQuery("from User", User.class)
+//            .getResultList();
+//        return allUsers;
+//    }
+//    @Override
+//    public void saveUser (User user) {
+//
+//        Session session = sessionFactory.getCurrentSession();
+//        entityManager.createQuery(saveUser(user);
+//    }
 
-        Session session = sessionFactory.getCurrentSession();
-        List<User> allUsers= session.createQuery("from User", User.class)
-            .getResultList();
-        return allUsers;
-    }
-    @Override
-    public void saveUser (User user) {
+//    @Override
+//    public User getUserByID(Long id) {
+//
+//        Session session = sessionFactory.getCurrentSession();
+//        return session.get(User.class, id);
+//        return null;
+//    }
 
-        Session session = sessionFactory.getCurrentSession();
-        session.save(user);
-    }
-}
+//    @Override
+//    public void editUserByID(Long id) {
+
+//        User userToBeUpdated = getUserByID(id);
+//        userToBeUpdated.setName(updatedUser.getName());
+//        userToBeUpdated.setSurname(updatedUser.getSurname());
+//        userToBeUpdated.setEmail(updatedUser.getEmail());
+//    }
+//    @Override
+//    public void deleteUserByID(Long id) {
+//
+//        User user = new User();
+//
+//        Session session = sessionFactory.getCurrentSession();
+//        session.delete(getUserByID(id));
+//    }
+
+//    @Override
+//    public void update(Long id, User updatedUser) {
+//
+//        User userToBeUpdated = getUserByID(id);
+//        userToBeUpdated.setName(updatedUser.getName());
+//        userToBeUpdated.setSurname(updatedUser.getSurname());
+//        userToBeUpdated.setEmail(updatedUser.getEmail());
+
+//        Session session = sessionFactory.getCurrentSession();
+//        session.update(user);
+//    }
+//}
