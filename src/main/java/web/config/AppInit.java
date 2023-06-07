@@ -38,15 +38,15 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     characterEncodingFilter.setForceEncoding(true);
     return new Filter[]{characterEncodingFilter};
     }
-    //добавил фильтр для PATH
-    @Override
-    public void onStartup(ServletContext aServletContext) throws ServletException {
-        super.onStartup(aServletContext);
-        registerHiddenFieldFilter(aServletContext);
-    }
-
-    private void registerHiddenFieldFilter(ServletContext aContext) {
-        aContext.addFilter("hiddenHttpMethodFilter",
-                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
-    }
+//    //добавил фильтр для PATH
+//    @Override
+//    public void onStartup(ServletContext aServletContext) throws ServletException {
+//        super.onStartup(aServletContext);
+//        registerHiddenFieldFilter(aServletContext);
+//    }
+//
+//    private void registerHiddenFieldFilter(ServletContext aContext) {
+//        aContext.addFilter("hiddenHttpMethodFilter",
+//                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
+//    }
 }
