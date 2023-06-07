@@ -146,14 +146,19 @@ public class UsersController {
         return "redirect:/";
     }
 
-
-    @DeleteMapping("/deleteUserById")
-    public String deleteUser(@PathVariable("id") Long id) {
+    @RequestMapping("/deleteUserById")
+    public String deleteUser(@RequestParam(value = "id", required = false) Long id) {
 
         userService.deleteUserByID(id);
 
         return "redirect:/";
     }
 
-
+//    @DeleteMapping("/deleteUserById")
+//    public String deleteUser(@PathVariable("id") Long id) {
+//
+//        userService.deleteUserByID(id);
+//
+//        return "redirect:/";
+//    }
 }
