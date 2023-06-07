@@ -10,51 +10,17 @@
 <h2>User Info</h2>
 <br>
 
-<!--<form:form action="saveUser" modelatribute="user">-->
 
-<!--    ID <form:input path="id"/>-->
-<!--    <input type="text" name="id"-->
-<!--           placeholder="Write user id"/>-->
-<!--    <br><br>-->
-<!--    Name <form:input path="name"/>-->
-<!--    <label>-->
-<!--        <input type="text" name="name"-->
-<!--               placeholder="Write user name"/>-->
-<!--    </label>-->
-<!--    <br><br>-->
-<!--    Last Name <form:input path="lastName"/>-->
-<!--    <label>-->
-<!--        <input type="text" name="lastName"-->
-<!--               placeholder="Write user Last Name"/>-->
-<!--    </label>-->
-<!--    <br><br>-->
-<!--    Email <form:input path="email"/>-->
-<!--    <label>-->
-<!--        <input type="text" name="email"-->
-<!--               placeholder="Write user email"/>-->
-<!--    </label>-->
-<!--    <br><br>-->
-<!--    <input type="submit" value="OK">-->
-
-<!--</form:form>-->
-
-<!--<form method="post" action="/saveUser">-->
-
-<!--    <label for="surname">Last Name</label>-->
-<!--    <input name="surname" type="text" id="surname"/>-->
-
-<!--    <br>-->
-
-<!--    <label for="email">Email</label>-->
-<!--    <input name="email" type="text" id="email"/>-->
-
-<!--    <br>-->
-
-<!--    <input type="submit" value="Add User">-->
-
-<!--</form>-->
+<p>User Id:  <p th:utext="${user.id}"><p>
+<p>User name:  <p th:utext="${user.name}"><p>
+<p>User surname:  <p th:utext="${user.surname}"><p>
+<p>User email:  <p th:utext="${user.email}"><p>
 
 
+<br>
+<br>
+
+<a href="/">Home page</a>
 
 </body>
 </html>

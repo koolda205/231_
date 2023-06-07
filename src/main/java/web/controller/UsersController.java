@@ -130,7 +130,7 @@ public class UsersController {
     public String findUsersById(@RequestParam(value = "id", required = false) Long id,
                             Model model) {
 
-        model.addAttribute("id", userService.getUserByID(id));
+        model.addAttribute("user", userService.getUserByID(id));
         return "user-info";
     }
 
