@@ -101,8 +101,8 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public void editUserByID(Long id) {
-        userDao.editUserByID(id);
+    public void editUser(User user) {
+        userDao.editUser(user);
     }
 
     @Transactional

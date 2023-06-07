@@ -1,26 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="UTF-8">
-    <title>Update person</title>
+    <title></title>
 </head>
 <body>
+Edit User
+<form method="post" action="/editUser">
 
-<form th:method="PATCH" th:action="@{/edit{id}{id=${user.getID()})}" th:object="{user}">
-    <label for="name">Enter Name</label>
-    <input type="text" th:field="*{name}" id="name"/>
     <br>
-    <label for="name">Enter Surname</label>
-    <input type="text" th:field="*{surname}" id="surname"/>
+
+    <label for="name">Id</label>
+    <input name="id" id="id"/>
+
     <br>
-    <label for="name">Enter Email</label>
-    <input type="text" th:field="*{email}" id="email"/>
+
+    <label for="name">Name</label>
+    <input name="name" type="text" id="name"/>
+
     <br>
-    <input type="submit" value="Update">
+
+    <label for="surname">Last Name</label>
+    <input name="surname" type="text" id="surname"/>
+
+    <br>
+
+    <label for="email">Email</label>
+    <input name="email" type="text" id="email"/>
+
+    <br>
+
+    <input type="submit" value="Edit User">
+
 </form>
 
 <br>
 <br>
+
+<a href="/">Home page</a>
 
 </body>
 </html>

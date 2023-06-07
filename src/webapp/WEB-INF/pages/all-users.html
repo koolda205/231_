@@ -71,13 +71,15 @@ findUsersById
 <br>
 
 Edit UsersBy Id
-<form action="/editUserById" method="delete">
+<form action="/editUserById" method="get">
 
   <label for="name">Edit UsersBy Id</label>
   <input type="text" name="id"
          placeholder="Write user ID"/>
   <input type="submit" value="Изменить Usera"/>
 </form>
+
+
 <br>
 <br>
 
@@ -92,34 +94,10 @@ deleteUsersById
 <br>
 <br>
 
-
-
-
-<!--<form th:method="POST" th:action="@{/}" th:object="${user}">-->
-<!--  <label for="name">Enter name: </label>-->
-<!--  <input type="text" th:fiel="${name}" id="name"-->
-<!--         placeholder="Write user name"/>-->
-<!--  <input type="submit" value="Создать"/>-->
-<!--</form>-->
-<!--<br>-->
-
-<!--<form th:method="PATCH" th:action="@{/{id}{id=${user.getId()})}" th:object="{user}">-->
-<!--  <label for="name">Enter Name</label>-->
-<!--  <input type="text" th:field="*{name1}" id="name"/>-->
-<!--  <br>-->
-<!--  <label for="name">Enter Surname</label>-->
-<!--  <input type="text" th:field="*{surname1}" id="surname"/>-->
-<!--  <br>-->
-<!--  <label for="name">Enter Email</label>-->
-<!--  <input type="text" th:field="*{email1}" id="email"/>-->
-<!--  <br>-->
-<!--  <input type="submit" value="Update">-->
-<!--</form>-->
-
 <br>
 <br>
-<input type="button" value="Add"
-       onclick="window.location.href = 'addNewUser'"/>
+<input type="button" value="Edit User"
+       onclick="window.location.href = 'edit'"/>
 
 <br>
 <br>
