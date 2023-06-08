@@ -7,13 +7,11 @@
 </head>
 <body>
 
-<h2>User Info</h2>
-
 <br>
 
 <table th:border="1" th:width="500" th:high="300" bg th:color="red">
 
-    <caption><h2>Users list</h2></caption>
+    <caption><h2>User Info</h2></caption>
 
     <br/><br/>
 
@@ -24,19 +22,12 @@
         <th>Email</th>
     </tr>
 
-
         <td th:utext="${user.id}">
         <td th:utext="${user.name}">
         <td th:utext=" ${user.surname}">
         <td th:utext="${user.email}">
 
-
 </table>
-
-<!--<p>User Id:  <p th:utext="${user.id}"><p>-->
-<!--<p>User name:  <p th:utext="${user.name}"><p>-->
-<!--<p>User surname:  <p th:utext="${user.surname}"><p>-->
-<!--<p>User email:  <p th:utext="${user.email}"><p>-->
 
 <br><br>
 
