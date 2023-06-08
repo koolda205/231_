@@ -31,7 +31,7 @@ public class UsersController {
 
         userService.saveUser(user);
 
-        return "redirect:/";
+        return "all-users";
     }
 
     @GetMapping("/findUsersById")
