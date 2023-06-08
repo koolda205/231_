@@ -46,9 +46,8 @@ public class UsersController {
     @RequestMapping("/editUserById")
     public String editUsersById(@RequestParam(value = "id", required = false) Long id, Model model) {
 
-        model.addAttribute("id", id);
         model.addAttribute("user", userService.getUserByID(id));
-        userService.deleteUserByID(id);
+
 
         return "edit";
     }
