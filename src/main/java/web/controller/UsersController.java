@@ -31,7 +31,7 @@ public class UsersController {
 
         userService.saveUser(user);
 
-        return "all-users";
+        return "redirect:/";
     }
 
     @GetMapping("/findUsersById")
@@ -43,7 +43,7 @@ public class UsersController {
         return "user-info";
     }
 
-    @GetMapping("/editUserById")
+    @RequestMapping("/editUserById")
     public String editUsersById(@RequestParam(value = "id", required = false) Long id, Model model) {
 
         model.addAttribute("user", userService.getUserByID(id));
@@ -52,7 +52,7 @@ public class UsersController {
         return "edit";
     }
 
-    @PatchMapping("/editUser")
+    @RequestMapping("/editUser")
     public String edit(@ModelAttribute("user") User user) {
 
         userService.editUser(user);
@@ -60,7 +60,7 @@ public class UsersController {
         return "redirect:/";
     }
 
-    @DeleteMapping("/deleteUserById")
+    @RequestMapping("/deleteUserById")
     public String deleteUser(@RequestParam(value = "id", required = false) Long id) {
 
         userService.deleteUserByID(id);
